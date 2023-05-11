@@ -50,7 +50,8 @@ public class User {
     private Date updatedAt;
     @OneToMany(mappedBy="user", fetch = FetchType.LAZY)
     private List<Books> books;
-	
+    @OneToMany(mappedBy = "borrower", fetch = FetchType.LAZY)
+    private List<Books> borrowedBooks;
 	
 	public User() {
 		
@@ -120,6 +121,14 @@ public class User {
 
 	public void setBooks(List<Books> books) {
 		this.books = books;
+	}
+	
+	public List<Books> getBorrowedBooks() {
+		return borrowedBooks;
+	}
+
+	public void setBorrowedBooks(List<Books> borrowedBooks) {
+		this.borrowedBooks = borrowedBooks;
 	}
 
 	@PrePersist 

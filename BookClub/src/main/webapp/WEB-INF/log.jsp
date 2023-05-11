@@ -40,7 +40,7 @@
 			<div>
 				<form:label path="confirm" class="form-label mt-5">Confirm Password:</form:label>
 				<form:errors path="confirm" class="text-danger" />
-				<form:input path="confirm" type="password" class="form-control" />
+				<form:input path="confirm" type="password" class="form-control" /> 
 			</div>
 			<input type="Submit" class="btn btn-primary mt-5" value="Register">
 				</form:form>

@@ -122,5 +122,51 @@ public class BookController {
             return "redirect:/";
         }
     }
+    
+    @GetMapping("/bookmarket")
+    public String market(
+    		HttpSession session,
+    		Model model
+    		
+    		) {
+    	Long userId = (Long) session.getAttribute("user_id");
+    	
+    	if (userId != null) {
+    		User loggedUser = userService.findUser(userId);
+    		model.addAttribute("loggedUser", loggedUser);
+    		List<Books> books = bookService.allBooks();
+    		List<Books> borrowedBooks = loggedUser.getBorrowedBooks();
+    		model.addAttribute("books", books);
+            model.addAttribute("borrowedBooks", borrowedBooks);
+    		
+            return "bookmarket.jsp";
+    	}else {
+    		return "redirect:/";
+    	}
+    	
+    	
+    }
+    
+    @PutMapping("/books/{id}/borrow")
+    public String borrowBook(
+            @PathVariable("id") Long id,
+            HttpSession session) {
+        Long userId = (Long) session.getAttribute("user_id");
+        User borrower = userService.findUser(userId);
+        Books book = bookService.findBook(id);
+        book.setBorrower(borrower);
+        bookService.createBook(book);
+        return "redirect:/bookmarket";
+    }
+    @PutMapping("/books/{id}/return")
+    public String returnBook(
+            @PathVariable("id") Long id,
+            HttpSession session) {
+        Books book = bookService.findBook(id);
+        book.setBorrower(null);
+        bookService.createBook(book);
+        return "redirect:/bookmarket";
+    }
+    
 
 }

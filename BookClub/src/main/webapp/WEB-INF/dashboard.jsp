@@ -25,6 +25,7 @@
 		</div>
 		<div class=" d-flex justify-content-between align-items-center">
 			<p class="des">Books form everyone's shelves:</p>
+			<a href="/bookmarket">Book Market</a>
 			<a href="/books/new">+ Add to my shelf!</a>
 		</div>
 
