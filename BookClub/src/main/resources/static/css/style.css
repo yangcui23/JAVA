@@ -1,0 +1,42 @@
+@charset "BIG5";
+
+.header {
+	color : purple;
+}
+
+.des {
+	font-size : 1.5rem;
+}
+
+.container {
+	width: 800px;
+}
+
+.form {
+	width: 400px;
+
+	margin: 0 auto;
+	margin-top: 80px;
+}
+
+.btn {
+	margin-left:228px;
+}
+
+.text {
+	 font-style: italic;
+}
+
+.title {
+	color : purple;
+	font-weight: bold;
+}
+
+.font {
+	font-weight: bold;
+}
+
+.author {
+	color:green;
+	font-weight:bold;
+}
